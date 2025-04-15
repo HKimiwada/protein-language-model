@@ -1,5 +1,26 @@
+from datasets import Dataset
 from exploratory_data_analysis import proteome_eda_df
 import polars as pl
+
+from transformers import (
+    AutoTokenizer,
+    AutoModelForMaskedLM,
+    DataCollatorForLanguageModeling,
+    TrainingArguments,
+    Trainer
+)
+from peft import LoraConfig, get_peft_model, TaskType
+
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+WANDB_API_KEY = os.getenv("WANDB_API_KEY")
+
+import wandb
+wandb.login()
+os.environ["WANDB_PROJECT"] = "esm2-protein-finetuning"
 
 # Unique protein types
 protein_counts = proteome_eda_df.group_by("protein").agg(pl.len().alias("count")).sort("count", descending=True)
