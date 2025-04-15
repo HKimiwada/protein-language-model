@@ -142,4 +142,5 @@ trainer = Trainer(
 # ---------------------------
 # 7. Start the Fine-Tuning Process
 # ---------------------------
-trainer.train()
+if __name__ == "__main__":
+    trainer.train()
