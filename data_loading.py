@@ -25,3 +25,4 @@ for record in records:
 
 # Convert to Polars DataFrame
 full_proteome_df = pl.DataFrame(parsed)
+full_proteome_df  
