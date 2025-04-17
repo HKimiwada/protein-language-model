@@ -1,0 +1,24 @@
+  0%|                                                                                                                                                                                | 0/7000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/hiroki_kimiwada/protein-language-model/finetuning.py", line 181, in <module>
+    trainer.train()
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 1498, in train
+    return inner_training_loop(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 1740, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 2470, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 2502, in compute_loss
+    outputs = model(**inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/peft/peft_model.py", line 678, in forward
+    return self.base_model(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'attention_mask'

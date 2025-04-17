@@ -1,0 +1,42 @@
+  0%|                                                                                                                                                                                | 0/6950 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/hiroki_kimiwada/protein-language-model/finetuning.py", line 180, in <module>
+    trainer.train()
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 1498, in train
+    return inner_training_loop(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 1738, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 2470, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/transformers/trainer.py", line 2502, in compute_loss
+    outputs = model(**inputs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/peft/peft_model.py", line 678, in forward
+    return self.base_model(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/protein-language-model/finetuning.py", line 82, in forward
+    esm_out = self.esm(input_ids, repr_layers=[], return_contacts=False)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/esm/model/esm2.py", line 112, in forward
+    x, attn = layer(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/esm/modules.py", line 125, in forward
+    x, attn = self.self_attn(
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/esm/multihead_attention.py", line 379, in forward
+    attn_weights_float = utils_softmax(attn_weights, dim=-1, onnx_trace=self.onnx_trace)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/esm/multihead_attention.py", line 22, in utils_softmax
+    return F.softmax(x, dim=dim, dtype=torch.float32)
+  File "/home/hiroki_kimiwada/miniconda3/envs/protein-gpu/lib/python3.9/site-packages/torch/nn/functional.py", line 1845, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 858.00 MiB (GPU 0; 15.78 GiB total capacity; 13.17 GiB already allocated; 749.75 MiB free; 13.66 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
