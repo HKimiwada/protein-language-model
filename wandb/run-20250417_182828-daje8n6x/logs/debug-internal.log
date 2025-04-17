@@ -1,0 +1,15 @@
+{"time":"2025-04-17T18:28:28.375007344+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hiroki_kimiwada/protein-language-model/wandb/run-20250417_182828-daje8n6x/logs/debug-core.log"}
+{"time":"2025-04-17T18:28:28.655515107+09:00","level":"INFO","msg":"created new stream","id":"daje8n6x"}
+{"time":"2025-04-17T18:28:28.655575247+09:00","level":"INFO","msg":"stream: started","id":"daje8n6x"}
+{"time":"2025-04-17T18:28:28.655591497+09:00","level":"INFO","msg":"sender: started","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:28.655611494+09:00","level":"INFO","msg":"handler: started","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:28.655663267+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:28.904641379+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-17T18:28:29.052383443+09:00","level":"INFO","msg":"stream: closing","id":"daje8n6x"}
+{"time":"2025-04-17T18:28:29.05240371+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-17T18:28:29.052420538+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-17T18:28:30.105953273+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-17T18:28:30.336008743+09:00","level":"INFO","msg":"handler: closed","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:30.336050514+09:00","level":"INFO","msg":"sender: closed","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:30.33604521+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"daje8n6x"}
+{"time":"2025-04-17T18:28:30.336121555+09:00","level":"INFO","msg":"stream: closed","id":"daje8n6x"}
