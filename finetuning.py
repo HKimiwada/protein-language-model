@@ -90,7 +90,7 @@ test_dataset = test_dataset.map(tokenize_function, batched=True, remove_columns=
 # ---------------------------
 # Configure LoRA. Adjust parameters (r, lora_alpha, lora_dropout) as needed.
 lora_config = LoraConfig(
-    task_type=TaskType.CAUSAL_LM,  # since our objective is masked LM
+    task_type=TaskType.CAUSAL_LM,  
     inference_mode=False,         # set True only when in inference
     target_modules=["query", "value"],
     r=8,                          # LoRA rank (adjust based on desired adaptation capacity)
@@ -112,7 +112,7 @@ data_collator = DataCollatorForLanguageModeling(
 )
 
 training_args = TrainingArguments(
-    output_dir="./esm2-spider-silk-finetuned",
+    output_dir="./v1-esm2-spider-silk-finetuned",
     overwrite_output_dir=True,
     num_train_epochs=3,                   # Adjust based on your training regime
     per_device_train_batch_size=8,        # Adjust according to your TPU/GPU memory
@@ -121,9 +121,10 @@ training_args = TrainingArguments(
     logging_steps=10,                    # Log every 100 steps
     save_steps=100,                       # Save checkpoints every 500 steps
     save_total_limit=4,
-    fp16=False,                           # Disable fp16 (set to True if you are on GPUs and want mixed precision)
-    bf16=True,                            # Enable bf16 mixed precision (commonly used on TPUs)
+    fp16=True,                           # Disable fp16 (set to True if you are on GPUs and want mixed precision)
+    bf16=False,                            # Enable bf16 mixed precision (commonly used on TPUs)
     report_to=["wandb"],                  # Enable wandb logging
+    ddp_find_unused_parameters=False,
     run_name="v1-ESM2_FineTune_SpiderSilk"  # Name for this wandb run
 )
 
