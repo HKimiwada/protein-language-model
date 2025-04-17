@@ -55,6 +55,9 @@ model, alphabet   = esm.pretrained.esm2_t30_150M_UR50D()
 batch_converter   = alphabet.get_batch_converter()
 mask_token_id     = alphabet.mask_idx
 
+for name, module in model.named_modules():
+    print(name)
+
 # 2.2 Tokenization function
 def tokenize_function(examples):
     # examples["sequence"] is the raw AA string
